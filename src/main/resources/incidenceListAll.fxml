@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="642.0" prefWidth="1165.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.IncidenceListAll">
+    <center>
+        <TableView fx:id="incidenceTable" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <columns>
+                <TableColumn fx:id="matriculaColumn" prefWidth="116.0" style="-fx-alignment: CENTER;" text="Matricula" />
+                <TableColumn fx:id="date" prefWidth="214.0" style="-fx-alignment: CENTER;" text="Fecha" />
+                <TableColumn fx:id="badColumn" minWidth="0.0" prefWidth="299.0" style="-fx-alignment: CENTER;" text="Mala Practica" />
+                <TableColumn fx:id="descriptionColumn" prefWidth="209.0" style="-fx-alignment: CENTER;" text="Descripción" />
+                <TableColumn fx:id="latitudColumn" prefWidth="94.0" style="-fx-alignment: CENTER;" text="Latitud" />
+                <TableColumn fx:id="longitudColumn" prefWidth="101.0" style="-fx-alignment: CENTER;" text="Longitud" />
+            </columns>
+        </TableView>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER_RIGHT" spacing="8.0" BorderPane.alignment="CENTER">
+            <children>
+                <Button fx:id="editB" mnemonicParsing="false" text="Editar" />
+            </children>
+            <BorderPane.margin>
+                <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+            </BorderPane.margin>
+        </HBox>
+    </bottom>
+</BorderPane>
