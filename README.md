@@ -1,6 +1,5 @@
 # IncidenceReportServer
-Installation
-sudo apt-get update
+Installation                                                                                                                sudo apt-get update
 sudo apt-get upgrade
 sudo apt-get install ffmpeg
 sudo apt-get install sox
