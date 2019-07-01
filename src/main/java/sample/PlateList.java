@@ -187,7 +187,7 @@ public class PlateList implements Initializable {
     }
 
     public void firestoreAuth() throws Exception {
-        InputStream serviceAccount = new FileInputStream("/home/adrian/iatros_matriculas/IncidenceReport/incidencereport.json");
+        InputStream serviceAccount = new FileInputStream("/home/adrian/iatros_matriculas/incidencereport.json");
         GoogleCredentials credentials = GoogleCredentials.fromStream(serviceAccount);
         FirebaseOptions options = new FirebaseOptions.Builder().setCredentials(credentials)
                 .setStorageBucket("incidencereport.appspot.com").build();
@@ -221,25 +221,7 @@ public class PlateList implements Initializable {
                             in.setMatricula(recogniser.recogniseAudio().replaceAll("\\s", ""));
                             System.out.println("matricula " + in.getMatricula());
                             db.collection("incidences").document(in.getId()).set(in);
-                            DocumentReference docRef = db.collection("plates").document(in.getMatricula());
-                            ApiFuture<DocumentSnapshot> future = docRef.get();
-                            DocumentSnapshot document = null;
-                            try {
-                                document = future.get();
-                            } catch (InterruptedException e) {
-                                e.printStackTrace();
-                            } catch (ExecutionException e) {
-                                e.printStackTrace();
-                            }
-                            if (document.exists()) {
-                                Plate plate = document.toObject(Plate.class);
-                                plate.setCount();
-                                db.collection("plates").document(in.getMatricula()).set(plate);
-                            } else {
-                                Plate plate = new Plate(in);
 
-                                db.collection("plates").document(in.getMatricula()).set(plate);
-                            }
                         }
 
                     }
